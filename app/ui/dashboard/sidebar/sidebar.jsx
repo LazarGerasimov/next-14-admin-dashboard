@@ -89,6 +89,7 @@ const Sidebar = () => {
           width={50}
           height={50}
           className={styles.userImage}
+          priority
         />
         <div className={styles.userDetails}>
           <span className={styles.username}>John Doe</span>
