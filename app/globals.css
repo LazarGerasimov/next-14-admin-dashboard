@@ -3,18 +3,18 @@
     --bgSoft: #182237;
     --text: white;
     --textSoft: #b7bac1;
-};
+}
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-};
+}
 
 body {
-    background-color: var(--bg);
+    background-color: #151c2c;
     color: var(--text);
-};
+}
 
 a {
     color: inherit;
