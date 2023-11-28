@@ -13,8 +13,6 @@ const AddProductPage = () => {
                     <option value="phone">Phone</option>
                     <option value="computer">Computer</option>
                     <option value="tablet">Tablet</option>
-                    <option value=""></option>
-                    <option value=""></option>
                 </select>
                 <input type="number" placeholder='Price' name='price' />
                 <input type="number" placeholder='Stock' name='stock' />
