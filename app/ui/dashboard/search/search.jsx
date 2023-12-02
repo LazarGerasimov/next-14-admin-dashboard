@@ -15,7 +15,9 @@ const Search = ({
 
     // use debounce for search optimisation (only start fetching after user stopped typing for n miliseconds)
     const handleSearch = useDebouncedCallback((e) => {
+
         const params = new URLSearchParams(searchParams);
+        params.set("page", 1);
 
         if (e.target.value) {
             // start fetching only when more than 3 characters are typed to prevent expensive operations
