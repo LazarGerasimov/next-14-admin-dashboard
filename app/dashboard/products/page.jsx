@@ -53,7 +53,7 @@ const ProductsPage = async ({
               </td>
               <td>{product.description}</td>
               <td>{product.price}</td>
-              <td>{product.createdAt?.toString().splice(4, 16)}</td>
+              <td>{product.createdAt?.toString().slice(4, 16)}</td>
               <td>{product.stock}</td>
               <td>
                 <div className={styles.buttons}>

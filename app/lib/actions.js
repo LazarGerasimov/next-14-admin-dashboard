@@ -1,15 +1,14 @@
-import { revalidatePath } from "next/cache";
+"use server";
 
 import bcrypt from 'bcrypt';
+import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
-import { User } from "./models";
+import { Product, User } from "./models";
 import { connectToDB } from "./utils";
 
 
 export const addUser = async (formData) => {
-
-    "use server"
 
     const { username, email, password, phone, address, isAdmin, isActive } = Object.fromEntries(formData);
 
@@ -39,4 +38,32 @@ export const addUser = async (formData) => {
 
     revalidatePath("/dashboard/users");
     redirect("/dashboard/users");
+}
+
+export const addProduct = async (formData) => {
+
+    const { title, description, price, stock, color, size } = Object.fromEntries(formData);
+
+    try {
+
+        connectToDB();
+
+        const newProduct = new Product({
+            title,
+            description,
+            price,
+            stock,
+            color,
+            size
+        });
+
+        await newProduct.save();
+    } catch (error) {
+        console.log(error);
+        throw new Error("Failed to create product.");
+    }
+
+
+    revalidatePath("/dashboard/products");
+    redirect("/dashboard/products");
 }

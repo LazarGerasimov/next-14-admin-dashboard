@@ -1,10 +1,11 @@
+import { addProduct } from '@/app/lib/actions';
 import styles from '@/app/ui/dashboard/products/addProduct.module.css';
 
 const AddProductPage = () => {
     return (
         <div className={styles.container}>
             <form
-                action=""
+                action={addProduct}
                 className={styles.form}
             >
                 <input type="text" placeholder='Title' name='title' required />
@@ -18,7 +19,7 @@ const AddProductPage = () => {
                 <input type="number" placeholder='Stock' name='stock' />
                 <input type="text" placeholder='Color' name='color' />
                 <input type="text" placeholder='Size' name='size' />
-                <textarea name="desc" id="desc" rows="16" placeholder='Description'></textarea>
+                <textarea name="description" id="description" rows="16" placeholder='Description'></textarea>
                 <button type='submit'>Submit</button>
             </form>
         </div>
