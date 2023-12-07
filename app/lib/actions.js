@@ -6,7 +6,7 @@ import { redirect } from "next/navigation";
 
 import { Product, User } from "./models";
 import { connectToDB } from "./utils";
-
+import { signIn } from '../auth';
 
 export const addUser = async (formData) => {
 
@@ -167,4 +167,15 @@ export const deleteProduct = async (formData) => {
 
 
     revalidatePath("/dashboard/products");
+};
+
+export const authenticate = async (formData) => {
+    const { username, password } = Object.fromEntries(formData);
+
+    try {
+        await signIn("credentials", { username, password });
+      
+    } catch (err) {
+        return "Wrong Credentials!";
+    }
 };
